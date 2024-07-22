@@ -18,13 +18,15 @@ func _physics_process(delta):
 	if Input.is_action_pressed("down"):
 		velocity.y += SPEED
 		$Sprite2D.flip_v = true
-	if Input.is_action_pressed("down"):
-		velocity.y += SPEED
-		$Sprite2D.flip_v = true
 	move_and_slide()
+	$Camera2D.position = Vector2(0,0)
+	var mouse_pos = get_global_mouse_position()
+	var angle = rad_to_deg(atan2(mouse_pos.y - global_position.y, mouse_pos.x - global_position.x))
+	$".".rotation_degrees = angle
 	
 	if Input.is_action_pressed("shoot"):
 		$Gun.shoot()
+		
 		
 
 
