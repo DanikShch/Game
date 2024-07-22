@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
+
+
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO
@@ -23,18 +24,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if Input.is_action_pressed("shoot"):
-		shoot()
+		$Gun.shoot()
 		
-	$RayCast2D.look_at(get_global_mouse_position())
 
 
-func shoot():
-	$RayCast2D.force_raycast_update()
-	if $RayCast2D.is_colliding():
-		var collider = $RayCast2D.get_collider()
-		if collider.is_in_group("Enemy"):
-			print("Enemy")
-		elif collider.is_in_group("Objects"):
-			print("Wall")
-	else:
-		print("miss")
+

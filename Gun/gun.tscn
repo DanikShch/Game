@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://cb3pm7sqkw23s"]
+[gd_scene load_steps=2 format=3 uid="uid://cb3pm7sqkw23s"]
+
+[ext_resource type="Script" path="res://Gun/gun.gd" id="1_8byci"]
 
 [node name="Gun" type="Node2D"]
+script = ExtResource("1_8byci")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(500, 0)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="DelayTimer" type="Timer" parent="."]
+
+[node name="ReloadTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DelayTimer" to="." method="_on_delay_timer_timeout"]
