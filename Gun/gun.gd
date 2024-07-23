@@ -9,6 +9,7 @@ var can_shoot = true
 func _ready():
 	$DelayTimer.wait_time = shoot_delay
 	$ReloadTimer.wait_time = reload_time
+	#privet
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 	
