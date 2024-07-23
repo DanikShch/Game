@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c74bp6ifb7uah"]
+[gd_scene load_steps=6 format=3 uid="uid://c74bp6ifb7uah"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_l5uj8"]
 [ext_resource type="PackedScene" uid="uid://cb3pm7sqkw23s" path="res://Gun/gun.tscn" id="3_ch842"]
 [ext_resource type="Texture2D" uid="uid://cmtuxs0qotftx" path="res://icon.svg" id="3_mv2s6"]
+[ext_resource type="Script" path="res://Camera/Camera2D.gd" id="4_ocex2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5vng"]
 size = Vector2(128, 128)
@@ -19,3 +20,7 @@ texture = ExtResource("3_mv2s6")
 shape = SubResource("RectangleShape2D_h5vng")
 
 [node name="Gun" parent="." instance=ExtResource("3_ch842")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-593, -333)
+script = ExtResource("4_ocex2")
