@@ -3,7 +3,6 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 
-
 func _physics_process(delta):
 	velocity = Vector2.ZERO
 	if Input.is_action_pressed("right"):

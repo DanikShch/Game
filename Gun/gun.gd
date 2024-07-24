@@ -27,6 +27,7 @@ func shoot():
 			var collider = $RayCast2D.get_collider()
 			if collider.is_in_group("Enemy"):
 				print("Enemy")
+				collider.take_damage(10)
 			elif collider.is_in_group("Objects"):
 				print("Wall")
 		else:
