@@ -1,17 +1,26 @@
 extends Node2D
 
 var damage = 10
-var shoot_delay = 1
+var shoot_delay
 var reload_time = 5
 var magazine_size = 3
 var current_ammo = 3
+var range = 5000
+
+var guns: Dictionary = {}
+var current_gun
+
 var can_shoot = true
 var reloading = false
 func _ready():
-	$DelayTimer.wait_time = shoot_delay
-	$ReloadTimer.wait_time = reload_time
-	#privet
-
+	guns["Pistol"] = $Pistol
+	guns["SMG"] = $SubmachineGun
+	guns["Assault"] = $AssaultRifle
+	guns["Shotgun"] = $Shotgun
+	guns["Sniper"] = $SniperRifle
+	guns["Grenade"] = $GrenadeLauncher
+	current_gun = "Sniper"
+	select_gun(current_gun)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 	
 
@@ -24,6 +33,13 @@ func shoot():
 	if can_shoot:
 		can_shoot = false
 		current_ammo -= 1
+		$DelayTimer.start()
+		if current_gun == "Shotgun":
+			$Shotgun.shoot()
+			return
+		if current_gun == "Grenade":
+			$GrenadeLauncher.shoot()
+			return
 		$RayCast2D.force_raycast_update()
 		if $RayCast2D.is_colliding():
 			var collider = $RayCast2D.get_collider()
@@ -34,7 +50,7 @@ func shoot():
 				print("Wall")
 		else:
 			print("miss")
-		$DelayTimer.start()
+		
 			
 
 func _on_delay_timer_timeout():
@@ -48,3 +64,15 @@ func reload():
 	current_ammo = magazine_size
 	can_shoot = true
 	reloading = false
+
+func select_gun(gun_name: String):
+	if guns.has(gun_name):
+		guns[current_gun].hide()
+		current_gun = gun_name
+		guns[current_gun].show()
+		guns[current_gun].set_active()
+		$DelayTimer.wait_time = shoot_delay
+		$ReloadTimer.wait_time = reload_time
+		$RayCast2D.target_position.x = range
+	else:
+		print("Wrong gun name")

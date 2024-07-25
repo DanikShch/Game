@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cb3pm7sqkw23s"]
+[gd_scene load_steps=9 format=3 uid="uid://cb3pm7sqkw23s"]
 
 [ext_resource type="Script" path="res://Gun/gun.gd" id="1_8byci"]
+[ext_resource type="Script" path="res://Gun/Pistol.gd" id="2_b5qqe"]
+[ext_resource type="Script" path="res://Gun/SubmachineGun.gd" id="3_53e0t"]
+[ext_resource type="Script" path="res://Gun/AssaultRifle.gd" id="4_ywm1w"]
+[ext_resource type="Script" path="res://Gun/Shotgun.gd" id="5_ll230"]
+[ext_resource type="Script" path="res://Gun/SniperRifle.gd" id="6_grpm0"]
+[ext_resource type="Script" path="res://Gun/GrenadeLauncher.gd" id="7_a3c13"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uw36a"]
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_8byci")
@@ -13,5 +21,56 @@ collide_with_areas = true
 [node name="DelayTimer" type="Timer" parent="."]
 
 [node name="ReloadTimer" type="Timer" parent="."]
+
+[node name="Pistol" type="Node2D" parent="."]
+visible = false
+script = ExtResource("2_b5qqe")
+
+[node name="SubmachineGun" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_53e0t")
+
+[node name="AssaultRifle" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_ywm1w")
+
+[node name="Shotgun" type="Node2D" parent="."]
+visible = false
+script = ExtResource("5_ll230")
+
+[node name="RayCast2D1" type="RayCast2D" parent="Shotgun"]
+target_position = Vector2(500, 0)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="Shotgun"]
+target_position = Vector2(500, 0)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="RayCast2D3" type="RayCast2D" parent="Shotgun"]
+target_position = Vector2(500, 0)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="RayCast2D4" type="RayCast2D" parent="Shotgun"]
+target_position = Vector2(500, 0)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="SniperRifle" type="Node2D" parent="."]
+visible = false
+script = ExtResource("6_grpm0")
+
+[node name="GrenadeLauncher" type="Node2D" parent="."]
+visible = false
+script = ExtResource("7_a3c13")
+
+[node name="ExplodeArea" type="Area2D" parent="GrenadeLauncher"]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrenadeLauncher/ExplodeArea"]
+shape = SubResource("CircleShape2D_uw36a")
 
 [connection signal="timeout" from="DelayTimer" to="." method="_on_delay_timer_timeout"]
