@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var SPEED = 300.0
 var accel = 7
-var health = 20
+var health = 500
 
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var player = $"../Player"

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
+var guns_type = ["Pistol","SMG","Assault","Shotgun","Sniper","Grenade"]
+var guns_num = 0
 
 
 func _physics_process(delta):
@@ -25,8 +27,22 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("shoot"):
 		$Gun.shoot()
+	if Input.is_action_just_released("weapon_change_up"):
+		guns_num = guns_num + 1
+		if guns_num > guns_type.size()-1:
+			guns_num = 0
+		
+		$Gun.select_gun(guns_type[guns_num])
+		print(guns_type[guns_num])
+	if Input.is_action_just_released("weapon_change_down"):
+		guns_num = guns_num - 1
+		if guns_num < 0:
+			guns_num = guns_type.size() -1
+		
+		$Gun.select_gun(guns_type[guns_num])
+		print(guns_type[guns_num])
 		
 		
-
-
+		
+		
 
