@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdr6m0mvlkowd"]
+[gd_scene load_steps=9 format=3 uid="uid://cdr6m0mvlkowd"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_211jd"]
 [ext_resource type="PackedScene" uid="uid://c74bp6ifb7uah" path="res://Player/player.tscn" id="1_j2dax"]
 [ext_resource type="PackedScene" uid="uid://bteun63qb3ffi" path="res://Enemy/enemy.tscn" id="2_3a8m1"]
 [ext_resource type="Texture2D" uid="uid://cmtuxs0qotftx" path="res://icon.svg" id="2_dfg1v"]
+[ext_resource type="Script" path="res://Level/Control.gd" id="5_37mfa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7o72"]
 size = Vector2(121.955, 125.023)
@@ -13,6 +14,20 @@ vertices = PackedVector2Array(9879, 3811, 18053, -4614, 18505, 7516, 5730, 8430,
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4), PackedInt32Array(1, 0, 6), PackedInt32Array(7, 1, 6, 8), PackedInt32Array(4, 9, 7, 8, 10, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(6262.39, 1181.79, 9846.28, 1198.12, 9868.92, 3801.32, 6292.57, 3921.13, 5719.14, 8441.32, 18515.5, 7526.39, 18062.8, -4623.67, 143.356, -4748.93, -52.8153, 8512.12, 5756.87, 8430.43, 6368.02, 3594.37)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="GDScript" id="GDScript_f7s0e"]
+script/source = "extends ColorRect
+
+@onready var player = $\"../../../Player\"
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var procent = player.health/player.max_health
+"
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_211jd")
@@ -37,3 +52,28 @@ position = Vector2(1577, 171)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 scale = Vector2(0.132537, 0.18362)
 navigation_polygon = SubResource("NavigationPolygon_4fc37")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_37mfa")
+
+[node name="Back" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 15.0
+offset_right = 293.0
+offset_bottom = 55.0
+
+[node name="Front" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 21.0
+offset_right = 284.0
+offset_bottom = 48.0
+color = Color(1, 0, 0, 1)
+script = SubResource("GDScript_f7s0e")
