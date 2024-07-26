@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdr6m0mvlkowd"]
+[gd_scene load_steps=8 format=3 uid="uid://cdr6m0mvlkowd"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_211jd"]
 [ext_resource type="PackedScene" uid="uid://c74bp6ifb7uah" path="res://Player/player.tscn" id="1_j2dax"]
-[ext_resource type="PackedScene" uid="uid://bteun63qb3ffi" path="res://Enemy/enemy.tscn" id="2_3a8m1"]
 [ext_resource type="Texture2D" uid="uid://cmtuxs0qotftx" path="res://icon.svg" id="2_dfg1v"]
 [ext_resource type="Script" path="res://Level/Control.gd" id="5_37mfa"]
 [ext_resource type="PackedScene" uid="uid://d35rjiq367h7c" path="res://UI/UI.tscn" id="5_t08mf"]
@@ -32,12 +31,6 @@ shape = SubResource("RectangleShape2D_s7o72")
 
 [node name="Player" parent="." instance=ExtResource("1_j2dax")]
 position = Vector2(593, 333)
-
-[node name="Enemy" parent="." instance=ExtResource("2_3a8m1")]
-position = Vector2(1577, 171)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_3a8m1")]
-position = Vector2(1577, 171)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 scale = Vector2(0.132537, 0.18362)
@@ -69,3 +62,15 @@ offset_top = 21.0
 offset_right = 284.0
 offset_bottom = 48.0
 color = Color(1, 0, 0, 1)
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(1151, -805)
+
+[node name="SpawnPoint2" type="Node2D" parent="."]
+position = Vector2(136, 324)
+
+[node name="SpawnPoint3" type="Node2D" parent="."]
+position = Vector2(1144, 1235)
+
+[node name="SpawnPoint4" type="Node2D" parent="."]
+position = Vector2(2303, 0)

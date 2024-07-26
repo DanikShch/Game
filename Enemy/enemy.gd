@@ -9,7 +9,7 @@ var ready_to_attack = true
 var attack_range = 200
 var attack_cooldown = 2.0
 var damage = 5
-
+@onready var level = get_parent()
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 @onready var player = $"../Player"
 
@@ -27,6 +27,7 @@ func take_damage(damage):
 	print("enemy health: "+ str(health))
 	print(health)
 	if health <= 0:
+		level.mobs_dead()
 		queue_free()
 		return
 	SPEED = 150.0

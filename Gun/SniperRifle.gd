@@ -11,7 +11,7 @@ func _process(delta):
 	pass
 
 func set_active():
-	$"..".damage = 20
+	$"..".damage = 250
 	$"..".shoot_delay = 1
 	$"..".reload_time = 5
 	$"..".magazine_size = 10

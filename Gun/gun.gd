@@ -26,7 +26,7 @@ func _ready():
 func _process(delta):
 	if $RayCast2D.is_colliding():
 		var collider = $RayCast2D.get_collider()
-		if collider.is_in_group("Enemy"):
+		if collider != null && collider.is_in_group("Enemy"):
 			var health = collider.health
 			var max_health = collider.max_health
 			Signals.emit_signal("mob_health", health, max_health)
