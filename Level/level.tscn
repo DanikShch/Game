@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdr6m0mvlkowd"]
+[gd_scene load_steps=8 format=3 uid="uid://cdr6m0mvlkowd"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_211jd"]
 [ext_resource type="PackedScene" uid="uid://c74bp6ifb7uah" path="res://Player/player.tscn" id="1_j2dax"]
@@ -14,20 +14,6 @@ vertices = PackedVector2Array(9879, 3811, 18053, -4614, 18505, 7516, 5730, 8430,
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4), PackedInt32Array(1, 0, 6), PackedInt32Array(7, 1, 6, 8), PackedInt32Array(4, 9, 7, 8, 10, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(6262.39, 1181.79, 9846.28, 1198.12, 9868.92, 3801.32, 6292.57, 3921.13, 5719.14, 8441.32, 18515.5, 7526.39, 18062.8, -4623.67, 143.356, -4748.93, -52.8153, 8512.12, 5756.87, 8430.43, 6368.02, 3594.37)])
 source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="GDScript" id="GDScript_f7s0e"]
-script/source = "extends ColorRect
-
-@onready var player = $\"../../../Player\"
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var procent = player.health/player.max_health
-"
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_211jd")
@@ -76,4 +62,3 @@ offset_top = 21.0
 offset_right = 284.0
 offset_bottom = 48.0
 color = Color(1, 0, 0, 1)
-script = SubResource("GDScript_f7s0e")

@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Gun/GrenadeLauncher.gd" id="7_a3c13"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uw36a"]
+radius = 45.24
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_8byci")
