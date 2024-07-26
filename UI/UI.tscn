@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://d35rjiq367h7c"]
+
+[ext_resource type="Script" path="res://UI/UI.gd" id="1_75yan"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_75yan")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Player HP bar" type="ProgressBar" parent="Control"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+offset_left = 30.0
+offset_top = 50.0
+offset_right = 289.0
+offset_bottom = 82.0
+value = 100.0
+
+[node name="Mob HP bar" type="ProgressBar" parent="Control"]
+modulate = Color(1, 0, 0, 0.823529)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 50.0
+offset_right = 130.0
+offset_bottom = 82.0
+grow_horizontal = 2
+value = 100.0

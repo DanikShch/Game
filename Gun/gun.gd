@@ -23,7 +23,15 @@ func _ready():
 	select_gun(current_gun)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 	
-
+func _process(delta):
+	if $RayCast2D.is_colliding():
+		var collider = $RayCast2D.get_collider()
+		if collider.is_in_group("Enemy"):
+			var health = collider.health
+			var max_health = collider.max_health
+			Signals.emit_signal("mob_health", health, max_health)
+			return
+	Signals.emit_signal("no_target")
 
 func shoot():
 	if current_ammo <= 0:

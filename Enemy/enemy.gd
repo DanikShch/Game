@@ -4,6 +4,7 @@ extends CharacterBody2D
 var SPEED = 300.0
 var accel = 7
 var health = 500
+var max_health = 500
 var ready_to_attack = true
 var attack_range = 200
 var attack_cooldown = 2.0

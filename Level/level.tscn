@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdr6m0mvlkowd"]
+[gd_scene load_steps=9 format=3 uid="uid://cdr6m0mvlkowd"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_211jd"]
 [ext_resource type="PackedScene" uid="uid://c74bp6ifb7uah" path="res://Player/player.tscn" id="1_j2dax"]
 [ext_resource type="PackedScene" uid="uid://bteun63qb3ffi" path="res://Enemy/enemy.tscn" id="2_3a8m1"]
 [ext_resource type="Texture2D" uid="uid://cmtuxs0qotftx" path="res://icon.svg" id="2_dfg1v"]
 [ext_resource type="Script" path="res://Level/Control.gd" id="5_37mfa"]
+[ext_resource type="PackedScene" uid="uid://d35rjiq367h7c" path="res://UI/UI.tscn" id="5_t08mf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s7o72"]
 size = Vector2(121.955, 125.023)
@@ -35,11 +36,17 @@ position = Vector2(593, 333)
 [node name="Enemy" parent="." instance=ExtResource("2_3a8m1")]
 position = Vector2(1577, 171)
 
+[node name="Enemy2" parent="." instance=ExtResource("2_3a8m1")]
+position = Vector2(1577, 171)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 scale = Vector2(0.132537, 0.18362)
 navigation_polygon = SubResource("NavigationPolygon_4fc37")
 
+[node name="UI" parent="." instance=ExtResource("5_t08mf")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

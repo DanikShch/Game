@@ -6,6 +6,9 @@ var guns_num = 0
 var health = 20.0
 var max_health = 20.0
 
+func _ready():
+	pass
+
 
 func get_health():
 	return health
@@ -55,6 +58,7 @@ func _physics_process(delta):
 		
 func take_damage(damage):
 	health = health - damage
+	$"../UI".update_player_hp(health)
 	if health <= 0:
 		print("dead")
 		
