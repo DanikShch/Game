@@ -16,6 +16,7 @@ var damage = 5
 func _ready():
 	set_physics_process(false)
 	call_deferred("navigation_setup")
+	$".".add_to_group("Enemy")
 	
 	#для исправления NavigationServer map query failed because it was made before first map synchronization.
 func navigation_setup():

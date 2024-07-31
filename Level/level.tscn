@@ -2,39 +2,24 @@
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_211jd"]
 [ext_resource type="PackedScene" uid="uid://c74bp6ifb7uah" path="res://Player/player.tscn" id="1_j2dax"]
-[ext_resource type="Texture2D" uid="uid://cmtuxs0qotftx" path="res://icon.svg" id="2_dfg1v"]
+[ext_resource type="PackedScene" uid="uid://cobv47r50xvm2" path="res://Gun/hub_gun.tscn" id="5_3m60n"]
 [ext_resource type="Script" path="res://Level/Control.gd" id="5_37mfa"]
 [ext_resource type="PackedScene" uid="uid://d35rjiq367h7c" path="res://UI/UI.tscn" id="5_t08mf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7o72"]
-size = Vector2(121.955, 125.023)
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_4fc37"]
-vertices = PackedVector2Array(9879, 3811, 18053, -4614, 18505, 7516, 5730, 8430, 5731, 8420, 6315, 3929, 9856, 1188, 152, -4738, 6252, 1172, -42, 8501, 6358, 3594)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4), PackedInt32Array(1, 0, 6), PackedInt32Array(7, 1, 6, 8), PackedInt32Array(4, 9, 7, 8, 10, 5)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(6262.39, 1181.79, 9846.28, 1198.12, 9868.92, 3801.32, 6292.57, 3921.13, 5719.14, 8441.32, 18515.5, 7526.39, 18062.8, -4623.67, 143.356, -4748.93, -52.8153, 8512.12, 5756.87, 8430.43, 6368.02, 3594.37)])
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4mgbx"]
+vertices = PackedVector2Array(-250, 955, -245, -535, -187, -530, 1679, 955, -186, -530, 1683, -535)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4), PackedInt32Array(5, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-186, -540, 1694, -546, 1689, 965, -260, 965, -255, -546)])
 source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcy4v"]
+size = Vector2(2.00002, 561)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_211jd")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(1064, 474.5)
-scale = Vector2(3.80469, 3.69531)
-texture = ExtResource("2_dfg1v")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Icon"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/RigidBody2D"]
-position = Vector2(-0.262787, 0.40593)
-shape = SubResource("RectangleShape2D_s7o72")
-
 [node name="Player" parent="." instance=ExtResource("1_j2dax")]
-position = Vector2(593, 333)
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-scale = Vector2(0.132537, 0.18362)
-navigation_polygon = SubResource("NavigationPolygon_4fc37")
+position = Vector2(869, 333)
 
 [node name="UI" parent="." instance=ExtResource("5_t08mf")]
 
@@ -74,3 +59,29 @@ position = Vector2(1144, 1235)
 
 [node name="SpawnPoint4" type="Node2D" parent="."]
 position = Vector2(2303, 0)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_4mgbx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(875, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-284, 6)
+shape = SubResource("RectangleShape2D_gcy4v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(279, 6)
+shape = SubResource("RectangleShape2D_gcy4v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3, -272)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_gcy4v")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-3, 283)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_gcy4v")
+
+[node name="hub_gun" parent="StaticBody2D" instance=ExtResource("5_3m60n")]

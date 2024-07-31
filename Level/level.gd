@@ -14,7 +14,7 @@ func _ready():
 	spawn_positions.append($SpawnPoint2.global_position)
 	spawn_positions.append($SpawnPoint3.global_position)
 	spawn_positions.append($SpawnPoint4.global_position)
-	print_debug_values()
+	#print_debug_values()
 
 
 func _process(delta):

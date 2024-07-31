@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cobv47r50xvm2"]
+
+[ext_resource type="Script" path="res://Gun/hub_gun.gd" id="1_eiti3"]
+[ext_resource type="Texture2D" uid="uid://ddhlnrr1we80v" path="res://texture/hub_gun.png" id="1_qil24"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bife0"]
+size = Vector2(83.5, 84)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8d3p"]
+
+[node name="hub_gun" type="CharacterBody2D"]
+position = Vector2(-184, -182)
+script = ExtResource("1_eiti3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.50002, -1.75)
+scale = Vector2(0.487097, 0.468379)
+texture = ExtResource("1_qil24")
+
+[node name="border" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0.5)
+shape = SubResource("RectangleShape2D_bife0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="range_border" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(42.515, 42.515)
+shape = SubResource("CircleShape2D_v8d3p")
+one_way_collision = true
