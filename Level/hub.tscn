@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://50inqa1tguly"]
+
+[ext_resource type="PackedScene" uid="uid://cobv47r50xvm2" path="res://Gun/hub_gun.tscn" id="1_f3djw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gcy4v"]
+size = Vector2(2.00002, 561)
+
+[node name="hub" type="StaticBody2D"]
+position = Vector2(875, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-284, 6)
+shape = SubResource("RectangleShape2D_gcy4v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(279, 6)
+shape = SubResource("RectangleShape2D_gcy4v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -272)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_gcy4v")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 283)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_gcy4v")
+
+[node name="hub_gun" parent="." instance=ExtResource("1_f3djw")]
