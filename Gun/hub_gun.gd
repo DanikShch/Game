@@ -6,7 +6,7 @@ var reload_time = 5
 var magazine_size = 120
 var current_ammo = 120
 var range_value = 5000
-var enable = false
+var enable = true
 var ready_to_shoot = true
 var body = []
 
