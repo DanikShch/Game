@@ -7,7 +7,7 @@ var health = 20.0
 var max_health = 20.0
 
 func _ready():
-	pass
+	$".".add_to_group("Player")
 
 
 func get_health():

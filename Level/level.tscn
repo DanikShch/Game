@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_211jd"]
 [ext_resource type="PackedScene" uid="uid://c74bp6ifb7uah" path="res://Player/player.tscn" id="1_j2dax"]
-[ext_resource type="Script" path="res://Level/Control.gd" id="5_37mfa"]
 [ext_resource type="PackedScene" uid="uid://50inqa1tguly" path="res://Level/hub.tscn" id="5_l75ey"]
 [ext_resource type="PackedScene" uid="uid://d35rjiq367h7c" path="res://UI/UI.tscn" id="5_t08mf"]
+
+[sub_resource type="Theme" id="Theme_podj0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4mgbx"]
 vertices = PackedVector2Array(-250, 955, -245, -535, -187, -530, 1679, 955, -186, -530, 1683, -535)
@@ -26,29 +27,15 @@ position = Vector2(869, 333)
 [node name="UI" parent="." instance=ExtResource("5_t08mf")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
 visible = false
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_37mfa")
-
-[node name="Back" type="ColorRect" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 72.0
-offset_top = 15.0
-offset_right = 293.0
-offset_bottom = 55.0
-
-[node name="Front" type="ColorRect" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 84.0
-offset_top = 21.0
-offset_right = 284.0
-offset_bottom = 48.0
-color = Color(1, 0, 0, 1)
+offset_left = 465.0
+offset_top = 467.0
+offset_right = 756.0
+offset_bottom = 526.0
+theme = SubResource("Theme_podj0")
+text = "Нажми \"E\" чтобы вкл/выкл"
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(1151, -805)

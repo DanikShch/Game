@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cobv47r50xvm2"]
+[gd_scene load_steps=6 format=3 uid="uid://cobv47r50xvm2"]
 
 [ext_resource type="Script" path="res://Gun/hub_gun.gd" id="1_eiti3"]
 [ext_resource type="Texture2D" uid="uid://ddhlnrr1we80v" path="res://texture/hub_gun.png" id="1_qil24"]
@@ -8,6 +8,9 @@ size = Vector2(83.5, 84)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8d3p"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0hw1"]
+size = Vector2(263, 213)
+
 [node name="hub_gun" type="CharacterBody2D"]
 position = Vector2(-184, -182)
 collision_layer = 0
@@ -16,6 +19,7 @@ script = ExtResource("1_eiti3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5.50002, -1.75)
+rotation = -1.5708
 scale = Vector2(0.487097, 0.468379)
 texture = ExtResource("1_qil24")
 
@@ -23,13 +27,21 @@ texture = ExtResource("1_qil24")
 position = Vector2(3, 0.5)
 shape = SubResource("RectangleShape2D_bife0")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Attack_area" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 5
 
-[node name="range_border" type="CollisionShape2D" parent="Area2D"]
+[node name="range_border" type="CollisionShape2D" parent="Attack_area"]
 scale = Vector2(42.515, 42.515)
 shape = SubResource("CircleShape2D_v8d3p")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="Control_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control_area"]
+position = Vector2(4.5, 2.5)
+shape = SubResource("RectangleShape2D_r0hw1")
+
+[connection signal="area_entered" from="Attack_area" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Attack_area" to="." method="_on_area_2d_area_exited"]

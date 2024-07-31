@@ -27,3 +27,4 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_gcy4v")
 
 [node name="hub_gun" parent="." instance=ExtResource("1_f3djw")]
+collision_layer = 1

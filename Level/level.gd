@@ -15,6 +15,7 @@ func _ready():
 	spawn_positions.append($SpawnPoint3.global_position)
 	spawn_positions.append($SpawnPoint4.global_position)
 	#print_debug_values()
+	$hub/hub_gun.set_text($CanvasLayer/TextEdit)
 
 
 func _process(delta):
