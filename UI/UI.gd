@@ -10,6 +10,7 @@ func _ready():
 	Signals.connect("mob_health",Callable(self,"_set_mob_health"))
 	Signals.connect("no_target",Callable(self,"_on_no_target"))
 	Signals.connect("ammo",Callable(self,"_change_ammo"))
+	Signals.connect("reload",Callable(self,"_on_reload"))
 	update_max_player_hp(player.max_health)
 	update_player_hp(player.health)
 	print(player.max_health)
@@ -37,3 +38,8 @@ func _on_no_target():
 func _change_ammo(ammo: int, current_ammo: int):
 	$Control/PanelContainer/HBoxContainer/Ammo.text = str(ammo)
 	$Control/PanelContainer/HBoxContainer/CurrentAmmo.text = str(current_ammo)
+	
+func _on_reload(time):
+	$Control/PanelContainer/HBoxContainer/Reload.show()
+	await get_tree().create_timer(time).timeout
+	$Control/PanelContainer/HBoxContainer/Reload.hide()

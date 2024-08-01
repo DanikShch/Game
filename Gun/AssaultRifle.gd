@@ -15,5 +15,4 @@ func set_active():
 	$"..".shoot_delay = 0.2
 	$"..".reload_time = 5
 	$"..".magazine_size = 20
-	$"..".current_ammo = 20
 	$"..".range = 500

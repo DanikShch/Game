@@ -1,5 +1,5 @@
 extends "res://Gun/gun.gd"
-var ammo = 100
+var ammo = 20
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,7 +12,6 @@ func _process(delta):
 func set_active():
 	$"..".damage = 10
 	$"..".shoot_delay = 0.5
-	$"..".reload_time = 3
+	$"..".reload_time = 2
 	$"..".magazine_size = 15
-	$"..".current_ammo = 15
 	$"..".range = 500
