@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdr6m0mvlkowd"]
+[gd_scene load_steps=8 format=3 uid="uid://cdr6m0mvlkowd"]
 
 [ext_resource type="Script" path="res://Level/level.gd" id="1_211jd"]
 [ext_resource type="PackedScene" uid="uid://c74bp6ifb7uah" path="res://Player/player.tscn" id="1_j2dax"]
 [ext_resource type="PackedScene" uid="uid://50inqa1tguly" path="res://Level/hub.tscn" id="5_l75ey"]
+[ext_resource type="Script" path="res://shop/shop.gd" id="5_sgqod"]
 [ext_resource type="PackedScene" uid="uid://d35rjiq367h7c" path="res://UI/UI.tscn" id="5_t08mf"]
 
 [sub_resource type="Theme" id="Theme_podj0"]
@@ -37,17 +38,102 @@ offset_bottom = 526.0
 theme = SubResource("Theme_podj0")
 text = "Нажми \"E\" чтобы вкл/выкл"
 
+[node name="Shop_ui" type="Node2D" parent="CanvasLayer"]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Shop_ui"]
+offset_left = 912.0
+offset_top = 154.0
+offset_right = 1004.0
+offset_bottom = 580.0
+alignment = 1
+
+[node name="MenuButton" type="MenuButton" parent="CanvasLayer/Shop_ui/VBoxContainer"]
+layout_mode = 2
+toggle_mode = false
+keep_pressed_outside = true
+text = "Click"
+flat = false
+
+[node name="MenuButton2" type="MenuButton" parent="CanvasLayer/Shop_ui/VBoxContainer"]
+layout_mode = 2
+toggle_mode = false
+keep_pressed_outside = true
+text = "Click"
+flat = false
+
+[node name="MenuButton3" type="MenuButton" parent="CanvasLayer/Shop_ui/VBoxContainer"]
+layout_mode = 2
+toggle_mode = false
+keep_pressed_outside = true
+text = "Click"
+flat = false
+
+[node name="MenuButton4" type="MenuButton" parent="CanvasLayer/Shop_ui/VBoxContainer"]
+layout_mode = 2
+toggle_mode = false
+keep_pressed_outside = true
+text = "Click"
+flat = false
+
+[node name="MenuButton5" type="MenuButton" parent="CanvasLayer/Shop_ui/VBoxContainer"]
+layout_mode = 2
+toggle_mode = false
+keep_pressed_outside = true
+text = "Click"
+flat = false
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Shop_ui"]
+offset_left = 670.0
+offset_top = 299.0
+offset_right = 894.0
+offset_bottom = 519.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Shop_ui/VBoxContainer2"]
+layout_mode = 2
+text = "Купить SMG 1000 монет"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Shop_ui/VBoxContainer2"]
+layout_mode = 2
+text = "Купить Assault 1000 монет"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Shop_ui/VBoxContainer2"]
+layout_mode = 2
+text = "Купить ShotGun 1000 монет"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Shop_ui/VBoxContainer2"]
+layout_mode = 2
+text = "Купить Sniper 1000 монет"
+
+[node name="Label5" type="Label" parent="CanvasLayer/Shop_ui/VBoxContainer2"]
+layout_mode = 2
+text = "Купить Granade 1000 монет"
+
 [node name="SpawnPoint" type="Node2D" parent="."]
+visible = false
 position = Vector2(1151, -805)
 
 [node name="SpawnPoint2" type="Node2D" parent="."]
+visible = false
 position = Vector2(136, 324)
 
 [node name="SpawnPoint3" type="Node2D" parent="."]
+visible = false
 position = Vector2(1144, 1235)
 
 [node name="SpawnPoint4" type="Node2D" parent="."]
+visible = false
 position = Vector2(2303, 0)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_4mgbx")
+
+[node name="Shop" type="Node2D" parent="."]
+visible = false
+script = ExtResource("5_sgqod")
+
+[connection signal="pressed" from="CanvasLayer/Shop_ui/VBoxContainer/MenuButton" to="Shop" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop_ui/VBoxContainer/MenuButton2" to="Shop" method="_on_menu_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop_ui/VBoxContainer/MenuButton3" to="Shop" method="_on_menu_button_3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop_ui/VBoxContainer/MenuButton4" to="Shop" method="_on_menu_button_4_pressed"]
+[connection signal="pressed" from="CanvasLayer/Shop_ui/VBoxContainer/MenuButton5" to="Shop" method="_on_menu_button_5_pressed"]

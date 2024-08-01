@@ -19,7 +19,7 @@ func _ready():
 	guns["Shotgun"] = $Shotgun
 	guns["Sniper"] = $SniperRifle
 	guns["Grenade"] = $GrenadeLauncher
-	current_gun = "Sniper"
+	current_gun = "Pistol"
 	select_gun(current_gun)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 	

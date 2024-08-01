@@ -1,15 +1,24 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-var guns_type = ["Pistol","SMG","Assault","Shotgun","Sniper","Grenade"]
+var guns_type = ["Pistol"]
 var guns_num = 0
 var health = 20.0
 var max_health = 20.0
+var money = 5000
 
 func _ready():
 	$".".add_to_group("Player")
 
 
+
+func add_new_gun(gun):
+	for string in guns_type:
+		if string == gun:
+			return 0
+	guns_type.append(gun)
+	return 1
+	
 func get_health():
 	return health
 	
