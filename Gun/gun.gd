@@ -32,9 +32,10 @@ func _process(delta):
 			Signals.emit_signal("mob_health", health, max_health)
 			return
 	Signals.emit_signal("no_target")
-	Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo)
+	
 
 func shoot():
+	Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo)
 	if guns[current_gun].ammo == 0:
 		return
 	if current_ammo <= 0:
