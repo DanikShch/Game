@@ -22,7 +22,7 @@ func _physics_process(delta):
 		body = $Attack_area.get_overlapping_bodies()
 		for enemy in body:
 			if enemy.is_in_group("Enemy"):
-				print(enemy)
+			#	print(enemy)
 				var pos = enemy.get_global_position()
 				var angle = rad_to_deg(atan2(pos.y - global_position.y, pos.x - global_position.x))
 				$".".rotation_degrees = angle

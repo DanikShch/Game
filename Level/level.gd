@@ -7,6 +7,7 @@ var mobs_count = 0
 var spawn_positions = []
 var spawn_delay = 5
 var ready_to_spawn = true
+var shop = false
 
 
 func _ready():
@@ -16,11 +17,16 @@ func _ready():
 	spawn_positions.append($SpawnPoint4.global_position)
 	#print_debug_values()
 	$hub/hub_gun.set_text($CanvasLayer/TextEdit)
+	$Shop.set_player($Player)
 
 
 func _process(delta):
 	if ready_to_spawn:
 		spawn()
+	if Input.is_action_just_released("Shop"):
+		print("Shop")
+		shop = !shop
+		$CanvasLayer/Shop_ui.visible = shop
 
 
 func spawn():
