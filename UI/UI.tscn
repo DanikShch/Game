@@ -32,3 +32,29 @@ offset_right = 130.0
 offset_bottom = 82.0
 grow_horizontal = 2
 value = 100.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 190.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Ammo" type="Label" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "qwe"
+
+[node name="TextureRect2" type="TextureRect" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="CurrentAmmo" type="Label" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "wqe"

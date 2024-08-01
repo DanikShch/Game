@@ -1,5 +1,5 @@
 extends "res://Gun/gun.gd"
-
+var ammo = 100
 var explosion_radius = 70
 # Called when the node enters the scene tree for the first time.
 func _ready():

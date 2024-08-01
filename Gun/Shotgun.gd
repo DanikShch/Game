@@ -1,5 +1,5 @@
 extends "res://Gun/gun.gd"
-
+var ammo = 100
 var spread_angle = 15.0
 var raycasts: Array = []
 

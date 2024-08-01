@@ -9,6 +9,7 @@ extends CanvasLayer
 func _ready():
 	Signals.connect("mob_health",Callable(self,"_set_mob_health"))
 	Signals.connect("no_target",Callable(self,"_on_no_target"))
+	Signals.connect("ammo",Callable(self,"_change_ammo"))
 	update_max_player_hp(player.max_health)
 	update_player_hp(player.health)
 	print(player.max_health)
@@ -33,3 +34,6 @@ func _set_mob_health(current_hp: int, max_hp: int):
 func _on_no_target():
 	mob_hp_bar.visible = false
 	
+func _change_ammo(ammo: int, current_ammo: int):
+	$Control/PanelContainer/HBoxContainer/Ammo.text = str(ammo)
+	$Control/PanelContainer/HBoxContainer/CurrentAmmo.text = str(current_ammo)

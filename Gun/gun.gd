@@ -32,8 +32,11 @@ func _process(delta):
 			Signals.emit_signal("mob_health", health, max_health)
 			return
 	Signals.emit_signal("no_target")
+	Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo)
 
 func shoot():
+	if guns[current_gun].ammo == 0:
+		return
 	if current_ammo <= 0:
 		if !reloading:
 			reload()
@@ -41,6 +44,7 @@ func shoot():
 	if can_shoot:
 		can_shoot = false
 		current_ammo -= 1
+		guns[current_gun].ammo -= 1
 		$DelayTimer.start()
 		if current_gun == "Shotgun":
 			$Shotgun.shoot()
@@ -69,7 +73,10 @@ func reload():
 	can_shoot = false
 	$ReloadTimer.start()
 	await $ReloadTimer.timeout
-	current_ammo = magazine_size
+	if magazine_size > guns[current_gun].ammo:
+		current_ammo = guns[current_gun].ammo
+	else:
+		current_ammo = magazine_size
 	can_shoot = true
 	reloading = false
 
