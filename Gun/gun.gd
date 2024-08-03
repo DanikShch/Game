@@ -25,7 +25,7 @@ func _ready():
 	$DelayTimer.wait_time = shoot_delay
 	$ReloadTimer.wait_time = reload_time
 	$RayCast2D.target_position.x = range
-	Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo)
+	Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo,current_gun)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 	
 func _process(delta):
@@ -40,7 +40,7 @@ func _process(delta):
 	
 
 func shoot():
-	Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo)
+	Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo,current_gun)
 	if guns[current_gun].ammo == 0 && current_ammo == 0:
 		return
 	if current_ammo <= 0:
@@ -102,6 +102,6 @@ func select_gun(gun_name: String):
 		$DelayTimer.wait_time = shoot_delay
 		$ReloadTimer.wait_time = reload_time
 		$RayCast2D.target_position.x = range
-		Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo)
+		Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo,current_gun)
 	else:
 		print("Wrong gun name")

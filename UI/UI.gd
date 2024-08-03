@@ -49,6 +49,10 @@ func _on_no_target():
 func _change_ammo(ammo: int, current_ammo: int,current_gun: String):
 	$Control/PanelContainer/HBoxContainer/Ammo.text = str(ammo)
 	$Control/PanelContainer/HBoxContainer/CurrentAmmo.text = str(current_ammo)
+	selected.set_visible(false)
+	selected = texture_dict[current_gun]
+	print(selected)
+	selected.set_visible(true)
 	
 	
 func _on_reload(time):
