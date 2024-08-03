@@ -3,6 +3,9 @@ extends CanvasLayer
 @onready var player_hp_bar = $"Control/Player HP bar"
 @onready var mob_hp_bar = $"Control/Mob HP bar"
 @onready var player = $"../Player"
+var texture_dict = {}
+
+@onready var selected = $Pistol_rect
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,6 +19,14 @@ func _ready():
 	print(player.max_health)
 	print(player.health)
 	mob_hp_bar.visible = false
+	texture_dict = {
+	"Pistol" : $Pistol_rect,
+	"SMG" : $SMG_rect,
+	"Assault" : $Ak_rect,
+	"Shotgun" : $Shotgun_rect,
+	"Sniper" : $Rifle_rect,
+	"Grenade" : $Pistol_rect
+}
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -35,9 +46,10 @@ func _set_mob_health(current_hp: int, max_hp: int):
 func _on_no_target():
 	mob_hp_bar.visible = false
 	
-func _change_ammo(ammo: int, current_ammo: int):
+func _change_ammo(ammo: int, current_ammo: int,current_gun: String):
 	$Control/PanelContainer/HBoxContainer/Ammo.text = str(ammo)
 	$Control/PanelContainer/HBoxContainer/CurrentAmmo.text = str(current_ammo)
+	
 	
 func _on_reload(time):
 	$Control/PanelContainer/HBoxContainer/Reload.show()

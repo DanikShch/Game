@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://c74bp6ifb7uah"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_l5uj8"]
-[ext_resource type="Texture2D" uid="uid://bmieinj7tfdvk" path="res://texture/Player.png" id="2_xbo24"]
+[ext_resource type="Texture2D" uid="uid://bmieinj7tfdvk" path="res://texture/player.png" id="2_xbo24"]
 [ext_resource type="PackedScene" uid="uid://cb3pm7sqkw23s" path="res://Gun/gun.tscn" id="3_ch842"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="4_ocex2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5vng"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7lqr"]
+radius = 42.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
@@ -14,11 +14,14 @@ collision_mask = 5
 script = ExtResource("1_l5uj8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-7.38983, 4.50018)
 rotation = 1.5708
+scale = Vector2(0.905259, 0.905259)
 texture = ExtResource("2_xbo24")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_h5vng")
+position = Vector2(-35, 5)
+shape = SubResource("CircleShape2D_n7lqr")
 
 [node name="Gun" parent="." instance=ExtResource("3_ch842")]
 

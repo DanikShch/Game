@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://v1dvfflrv6oj"]
+
+[ext_resource type="Texture2D" uid="uid://ds8uo1k0iggdw" path="res://texture/pistol.png" id="1_aub6g"]
+
+[node name="Pistol_rect" type="TextureRect"]
+offset_left = 495.0
+offset_top = 307.0
+offset_right = 608.0
+offset_bottom = 380.0
+texture = ExtResource("1_aub6g")
+expand_mode = 1

@@ -30,7 +30,6 @@ position = Vector2(869, 333)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
-visible = false
 offset_left = 465.0
 offset_top = 467.0
 offset_right = 756.0
@@ -129,7 +128,6 @@ position = Vector2(2303, 0)
 navigation_polygon = SubResource("NavigationPolygon_4mgbx")
 
 [node name="Shop" type="Node2D" parent="."]
-visible = false
 script = ExtResource("5_sgqod")
 
 [connection signal="pressed" from="CanvasLayer/Shop_ui/VBoxContainer/MenuButton" to="Shop" method="_on_menu_button_pressed"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dklqlff3juxkt"]
+
+[ext_resource type="Texture2D" uid="uid://76auug7li4uq" path="res://texture/AK.png" id="1_u5wik"]
+
+[node name="Ak_rect" type="TextureRect"]
+offset_left = 499.0
+offset_top = 230.0
+offset_right = 760.0
+offset_bottom = 302.0
+texture = ExtResource("1_u5wik")
+expand_mode = 1

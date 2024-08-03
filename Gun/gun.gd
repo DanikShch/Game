@@ -86,7 +86,7 @@ func reload():
 	else:
 		current_ammo = magazine_size
 		guns[current_gun].ammo -= missing_ammo
-	Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo)
+	Signals.emit_signal("ammo", guns[current_gun].ammo, current_ammo,current_gun)
 	can_shoot = true
 	reloading = false
 

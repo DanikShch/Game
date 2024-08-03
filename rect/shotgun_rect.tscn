@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfjxiadm4kiwv"]
+
+[ext_resource type="Texture2D" uid="uid://dalnq6vyfty8w" path="res://texture/shotgun.png" id="1_g26av"]
+
+[node name="Shotgun_rect" type="TextureRect"]
+offset_left = 782.0
+offset_top = 231.0
+offset_right = 1031.0
+offset_bottom = 274.0
+texture = ExtResource("1_g26av")
+expand_mode = 1

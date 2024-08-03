@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmieinj7tfdvk"
-path="res://.godot/imported/player.png-5acf94bebdf76bbed2885d7e4c734202.ctex"
+uid="uid://c0peugsa54pru"
+path="res://.godot/imported/Snipe.png-14263df440af420cf979636d013f7cbb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/player.png"
-dest_files=["res://.godot/imported/player.png-5acf94bebdf76bbed2885d7e4c734202.ctex"]
+source_file="res://texture/Snipe.png"
+dest_files=["res://.godot/imported/Snipe.png-14263df440af420cf979636d013f7cbb.ctex"]
 
 [params]
 

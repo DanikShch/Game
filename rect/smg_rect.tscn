@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://tp51qcviuvuw"]
+
+[ext_resource type="Texture2D" uid="uid://d68rg7rgkv2p" path="res://texture/SMG.png" id="1_3pwq0"]
+
+[node name="SMG_rect" type="TextureRect"]
+offset_left = 651.0
+offset_top = 302.0
+offset_right = 740.0
+offset_bottom = 383.0
+texture = ExtResource("1_3pwq0")
+expand_mode = 1

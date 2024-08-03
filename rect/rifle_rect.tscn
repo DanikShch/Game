@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3mc75atocnho"]
+
+[ext_resource type="Texture2D" uid="uid://c0peugsa54pru" path="res://texture/Snipe.png" id="1_w6nfv"]
+
+[node name="Rifle_rect" type="TextureRect"]
+offset_left = 794.0
+offset_top = 290.0
+offset_right = 1107.0
+offset_bottom = 352.0
+texture = ExtResource("1_w6nfv")
+expand_mode = 1
