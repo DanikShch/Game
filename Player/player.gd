@@ -6,10 +6,20 @@ var guns_num = 0
 var health = 20.0
 var max_health = 20.0
 var money = 5000
+var texture_dict
+var selected
 
 func _ready():
 	$".".add_to_group("Player")
-
+	texture_dict = {
+	"Pistol" : $Player_text/pistol,
+	"SMG" : $Player_text/smg,
+	"Assault" : $Player_text/rifle,
+	"Shotgun" : $Player_text/shotgun,
+	"Sniper" : $Player_text/snipe,
+	"Grenade" : $Player_text/pistol
+	}
+	selected = $Player_text/pistol
 
 
 func add_new_gun(gun):
@@ -55,6 +65,9 @@ func _physics_process(delta):
 		
 		$Gun.select_gun(guns_type[guns_num])
 		print(guns_type[guns_num])
+		selected.set_visible(false)
+		selected = texture_dict[guns_type[guns_num]]
+		selected.set_visible(true)
 	if Input.is_action_just_released("weapon_change_down"):
 		guns_num = guns_num - 1
 		if guns_num < 0:
@@ -62,6 +75,9 @@ func _physics_process(delta):
 		
 		$Gun.select_gun(guns_type[guns_num])
 		print(guns_type[guns_num])
+		selected.set_visible(false)
+		selected = texture_dict[guns_type[guns_num]]
+		selected.set_visible(true)
 		
 		
 		

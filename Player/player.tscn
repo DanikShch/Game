@@ -1,23 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://c74bp6ifb7uah"]
+[gd_scene load_steps=10 format=3 uid="uid://c74bp6ifb7uah"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_l5uj8"]
-[ext_resource type="Texture2D" uid="uid://bmieinj7tfdvk" path="res://texture/Player.png" id="2_xbo24"]
 [ext_resource type="PackedScene" uid="uid://cb3pm7sqkw23s" path="res://Gun/gun.tscn" id="3_ch842"]
 [ext_resource type="Script" path="res://Camera/Camera2D.gd" id="4_ocex2"]
+[ext_resource type="Texture2D" uid="uid://cy2lqrannxaet" path="res://texture/player_shotgun.png" id="4_rhgmc"]
+[ext_resource type="Texture2D" uid="uid://dfydh2vuka6bq" path="res://texture/player_rifle.png" id="5_p0jve"]
+[ext_resource type="Texture2D" uid="uid://2scoxasitwpi" path="res://texture/player_snipe.png" id="6_t6q7e"]
+[ext_resource type="Texture2D" uid="uid://vi4jnj1150uu" path="res://texture/player_smg.png" id="7_umj6g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n7lqr"]
-radius = 42.0
+radius = 108.99
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cyett"]
+load_path = "res://.godot/imported/player.png-5acf94bebdf76bbed2885d7e4c734202.ctex"
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_l5uj8")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-7.38983, 4.50018)
-rotation = 1.5708
-scale = Vector2(0.905259, 0.905259)
-texture = ExtResource("2_xbo24")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-35, 5)
@@ -28,3 +28,39 @@ shape = SubResource("CircleShape2D_n7lqr")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-593, -333)
 script = ExtResource("4_ocex2")
+
+[node name="Player_text" type="Node2D" parent="."]
+
+[node name="pistol" type="Sprite2D" parent="Player_text"]
+position = Vector2(-7.38983, 4.50018)
+rotation = 1.5708
+scale = Vector2(0.905259, 0.905259)
+texture = SubResource("CompressedTexture2D_cyett")
+
+[node name="shotgun" type="Sprite2D" parent="Player_text"]
+visible = false
+position = Vector2(8, 5)
+rotation = 1.5708
+scale = Vector2(0.905259, 0.905259)
+texture = ExtResource("4_rhgmc")
+
+[node name="rifle" type="Sprite2D" parent="Player_text"]
+visible = false
+position = Vector2(15, 5)
+rotation = 1.5708
+scale = Vector2(0.905259, 0.905259)
+texture = ExtResource("5_p0jve")
+
+[node name="snipe" type="Sprite2D" parent="Player_text"]
+visible = false
+position = Vector2(64, 2)
+rotation = 1.5708
+scale = Vector2(0.905259, 0.905259)
+texture = ExtResource("6_t6q7e")
+
+[node name="smg" type="Sprite2D" parent="Player_text"]
+visible = false
+position = Vector2(-7.38983, 4.50018)
+rotation = 1.5708
+scale = Vector2(0.905259, 0.905259)
+texture = ExtResource("7_umj6g")
